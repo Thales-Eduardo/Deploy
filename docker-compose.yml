@@ -1,0 +1,53 @@
+version: "3.8"
+
+networks:
+  networks-app:
+    driver: bridge
+
+services:
+  app1:
+    build:
+      dockerfile: ./docker/nodejs.dockerfile
+      context: .
+    container_name: node1
+    networks:
+      - networks-app
+    restart: always
+    ports:
+      - 3333
+    volumes:
+      - .:/usr/app
+    mem_reservation: 256m
+    cpus: 1
+
+  app2:
+    build:
+      dockerfile: ./docker/nodejs.dockerfile
+      context: .
+    container_name: node2
+    networks:
+      - networks-app
+    restart: always
+    ports:
+      - 3333
+    volumes:
+      - .:/usr/app
+    mem_reservation: 256m
+    cpus: 1
+
+  nginx-proxy:
+    build:
+      dockerfile: ./docker/nginx.proxy.dockerfile
+      context: .
+    container_name: nginx-proxy
+    networks:
+      - networks-app
+    ports:
+      - "8000:80"
+    depends_on:
+      - app1
+      - app2
+    volumes:
+      - .:/usr/app/nginx-proxy
+    mem_reservation: 256m
+    cpus: 1

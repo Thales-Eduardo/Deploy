@@ -1,0 +1,13 @@
+{
+  "explorer.compactFolders": false,
+  "explorer.autoReveal": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.folders.theme": "specific",
+  "material-icon-theme.folders.associations": {
+    "nginx": "Config"
+  },
+  "material-icon-theme.files.associations": {
+    "server.ts": "Nodejs_alt",
+    "*.nginx.conf": "Nginx"
+  }
+}

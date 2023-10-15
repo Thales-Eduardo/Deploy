@@ -1,17 +1,11 @@
 version: "3.8"
 
-networks:
-  networks-app:
-    driver: bridge
-
 services:
   app1:
     build:
       dockerfile: ./docker/nodejs.dockerfile
       context: .
     container_name: node1
-    networks:
-      - networks-app
     restart: always
     ports:
       - 3333
@@ -25,8 +19,6 @@ services:
       dockerfile: ./docker/nodejs.dockerfile
       context: .
     container_name: node2
-    networks:
-      - networks-app
     restart: always
     ports:
       - 3333

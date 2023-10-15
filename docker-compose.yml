@@ -32,8 +32,6 @@ services:
       dockerfile: ./docker/nginx.proxy.dockerfile
       context: .
     container_name: nginx-proxy
-    networks:
-      - networks-app
     ports:
       - "8000:80"
     depends_on:

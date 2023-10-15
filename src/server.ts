@@ -29,8 +29,9 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-app.get("/", (req, res) => {
-  console.log("passou aq");
+app.get("/", async (req, res) => {
+  const origin = req.headers.host;
+  console.log("passou aq", origin);
 
   res.send("Hello World");
 });

@@ -1,8 +1,8 @@
-FROM node:alpine
+FROM node:latest
 
 WORKDIR /usr/app
 
-# RUN apt-get update && apt-get install -y vim
+RUN apt-get update && apt-get install -y vim
 
 COPY package.json ./
 

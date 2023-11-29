@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "test -d build && rm -rf build; yarn tsc && node build/server.js"
+    "start": "node build/server.js",
+    "dev": "test -d build && rm -rf build; yarn tsc && node build/server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

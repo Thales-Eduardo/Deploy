@@ -30,10 +30,16 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 });
 
 app.get("/", async (req, res) => {
+  const ipAddress =
+    req.headers["x-forwarded-for"] || req.connection.remoteAddress;
   const origin = req.headers.host;
-  console.log("passou aq", origin);
 
-  res.send("Hello World");
+  console.log("passou aq", origin);
+  const obj = {
+    host: origin,
+    ip: "seu ip: " + ipAddress,
+  };
+  res.send(obj);
 });
 
 const server = app.listen(port, () => {

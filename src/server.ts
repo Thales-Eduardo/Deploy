@@ -34,7 +34,6 @@ app.get("/", async (req, res) => {
     req.headers["x-forwarded-for"] || req.connection.remoteAddress;
   const origin = req.headers.host;
 
-  console.log("passou aq", origin);
   const obj = {
     host: origin,
     ip: "seu ip: " + ipAddress,

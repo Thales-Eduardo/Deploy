@@ -33,7 +33,7 @@ services:
       context: .
     container_name: nginx-proxy
     ports:
-      - "8000:80"
+      - 80
     depends_on:
       - app1
       - app2

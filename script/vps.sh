@@ -1,4 +1,4 @@
-git clone https://github.com/Thales-Eduardo/nginx.git
+git clone https://github.com/Thales-Eduardo/nginx.git app && cd app
 
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common \
  && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg \
@@ -16,3 +16,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash 
 node -v && npm i -g yarn && sudo apt update && yarn && yarn tsc
 
 sudo docker-compose up -d && sudo docker logs node1
+
+sudo apt install apache2 && sudo systemctl status apache2 && sudo systemctl start apache2 && sudo systemctl enable apache2
+
+

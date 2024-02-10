@@ -15,8 +15,6 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash 
 
 node -v && npm i -g yarn && sudo apt update && yarn && yarn tsc
 
-sudo docker-compose up -d && sudo docker logs node1
+sudo docker-compose up -d
 
-sudo apt install apache2 && sudo systemctl status apache2 && sudo systemctl start apache2 && sudo systemctl enable apache2
-
-
+sudo docker logs node1 && sudo docker logs node2 && sudo docker logs nginx-proxy

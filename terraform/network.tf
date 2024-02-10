@@ -73,6 +73,7 @@ resource "aws_security_group" "security_group" {
   }
 
   egress {
+    description = "HTTP"
     from_port   = 80 # HTTP
     to_port     = 80
     protocol    = "tcp"
@@ -80,6 +81,7 @@ resource "aws_security_group" "security_group" {
   }
 
   egress {
+    description = "HTTP"
     from_port   = 80 # HTTPS
     to_port     = 443
     protocol    = "tcp"

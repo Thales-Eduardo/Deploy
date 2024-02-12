@@ -1,6 +1,7 @@
 resource "aws_key_pair" "deployer" {
-  key_name   = "aws-key"
-  public_key = file("${path.module}/ssh.txt")
+  key_name = "aws-key"
+  # public_key = file("${path.module}/ssh.txt")
+  public_key = var.ssh_pub
 }
 
 resource "aws_instance" "vm" {

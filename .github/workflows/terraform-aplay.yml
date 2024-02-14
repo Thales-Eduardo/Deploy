@@ -1,4 +1,4 @@
-name: Terraform plan
+name: Terraform Apply
 on: workflow_dispatch
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -6,8 +6,8 @@ env:
   TF_VAR_ssh_pub: ${{ secrets.TF_VAR_ssh_pub }}
 
 jobs:
-  terraform_plan:
-    name: Terraform Plan
+  terraform_apply:
+    name: Terraform Apply
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -15,9 +15,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Terraform Plan
+      - name: Terraform Apply
         run: |
           cd terraform
           terraform init
-          terraform validate
-          terraform plan || echo "Terraform apply failed!"
+          terraform apply -auto-approve || echo "Terraform apply failed!"

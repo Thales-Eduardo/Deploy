@@ -19,5 +19,4 @@ jobs:
         run: |
           cd terraform
           terraform init
-          terraform plan -destroy
           terraform destroy -auto-approve || echo "Terraform apply failed!"

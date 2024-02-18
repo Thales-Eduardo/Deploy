@@ -4,8 +4,14 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.36.0"
+      version = "5.37.0"
     }
+  }
+
+  backend "s3" {
+    bucket = "thales-remote-state-app"
+    key    = "aws-vpc/terraform.tfstate"
+    region = "us-east-1"
   }
 }
 

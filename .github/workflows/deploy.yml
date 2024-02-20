@@ -27,8 +27,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/app
-            yarn
-            yarn tsc
+            /home/ubuntu/.nvm/versions/node/v20.9.0/bin/yarn
+            /home/ubuntu/.nvm/versions/node/v20.9.0/bin/yarn tsc
             docker-compose build
             docker-compose down
             sudo docker-compose up -d

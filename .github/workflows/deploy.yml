@@ -26,7 +26,7 @@ jobs:
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd app
+            cd ~/app
             yarn
             yarn tsc
             docker-compose build

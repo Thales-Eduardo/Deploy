@@ -8,3 +8,4 @@ Fiz este projeto para aprender `Balanceamento de Carga`, `Proxy Reverse` usando 
 
 - [x] deploy no digital ocean
 - [x] deploy na aws ec2 com terraform
+- [x] CI/CD

@@ -8,6 +8,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: instalar dependências e rodar o build
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+      - run: |
+          yarn
+          yarn tsc
+
       - name: copiar arquivo via ssh
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -27,8 +35,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/app
-            /home/ubuntu/.nvm/versions/node/v20.9.0/bin/yarn
-            /home/ubuntu/.nvm/versions/node/v20.9.0/bin/yarn tsc
             docker-compose build
             docker-compose down
             sudo docker-compose up -d
